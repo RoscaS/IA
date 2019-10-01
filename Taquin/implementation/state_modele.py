@@ -29,35 +29,35 @@ class State(object):
         return new
 
     @staticmethod
-    def get_x(values, x=0):
-        for i, line in enumerate(values):
-            for j, el in enumerate(line):
-                if el == x:
-                    return (i, j)
+    def get_position(values):
+        for x, line in enumerate(values):
+            for y, el in enumerate(line):
+                if el == 0:
+                    return (x, y)
 
     def applicable_operators(self):
         ops = []
         rows = len(self.values)
         cols = len(self.values[0])
 
-        i, j = self.get_x(self.values)
-        push = lambda a, b: ops.append(self.swap(self.values, i, j, a, b))
+        x, y = self.get_position(self.values)
+        push = lambda a, b: ops.append(self.swap(self.values, x, y, a, b))
 
         # swap with previous line
-        if i > 0:
-            push(i - 1, j)
+        if x > 0:
+            push(x - 1, y)
 
         # swap with following line
-        if i < rows - 1:
-            push(i + 1, j)
+        if x < rows - 1:
+            push(x + 1, y)
 
         # swap with left side column
-        if j > 0:
-            push(i, j - 1)
+        if y > 0:
+            push(x, y - 1)
 
         # swap with right side column
-        if j < cols - 1:
-            push(i, j + 1)
+        if y < cols - 1:
+            push(x, y + 1)
 
         return ops
 
