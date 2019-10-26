@@ -1,4 +1,4 @@
-from Taquin.demo.taquin_viewer import TaquinViewerHTML
+from a_Taquin.demo.taquin_viewer import TaquinViewerHTML
 
 if __name__ == '__main__':
 

@@ -1,7 +1,7 @@
 import time
 
-from Taquin.implementation.state_modele import State
-from Taquin.implementation.taquin_viewer import TaquinViewerHTML
+from implementation.state_modele import State
+from implementation.taquin_viewer import TaquinViewerHTML
 
 EASY = [[1, 2, 3], [4, 0, 6], [7, 5, 8]]
 MEDIUM = [[0, 1, 2], [7, 4, 3], [5, 8, 6]]
