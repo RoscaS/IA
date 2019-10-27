@@ -68,6 +68,7 @@ def dijkstra_search(graph, start, goal):
 
         for next in graph.neighbors(current):
             new_cost = cost_so_far[current] + graph.cost(next)
+
             if new_cost < cost_so_far.get(next, 99999):
                 cost_so_far[next] = new_cost
                 priority = new_cost
@@ -84,7 +85,6 @@ def greedy_best_first_search(graph, start, goal):
 
     while not frontier.empty():
         current = frontier.get()
-        # draw_grid(graph, width=3, point_to=came_from, start=start, goal=goal)
 
         if current == goal:
             break

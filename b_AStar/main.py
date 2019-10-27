@@ -1,33 +1,18 @@
-from collections import deque
-
-from astar.Grid import Grid, Point2D
-from graph.Graph import Graph
-
-
+from graphs.Grid import Grid
+from helpers.Point2D import Point2D
 
 g = Grid(20, 10)
+g.refresh_delay = 0.1
+g.set_AStartStrategy()
+g.set_CrowFlyHeuristic()
 
-# g.show()
+# start = Vertex(Point2D(10, 5))
+# goal = Vertex(Point2D(18, 6))
 
-
-
-def breath_first(graph, start):
-    frontier = deque([start])
-    visited = {start: True}
-
-    while not len(frontier) == 0:
-        current = frontier.popleft()
-        print(f"Visiting: {current}")
-        for next in graph.get_vertex(current).connections:
-            if next.id not in visited:
-                frontier.append(next.id)
-                visited[next.id] = True
-
-    print(len(visited))
+goal = g.get_vertex(Point2D(4, 1))
+start = g.get_vertex(Point2D(18, 8))
 
 
 
-
-breath_first(g, Point2D(10, 5))
-
+g.search(start, goal)
 

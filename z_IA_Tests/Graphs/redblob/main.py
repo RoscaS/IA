@@ -47,6 +47,9 @@ def a_star():
     draw_grid(grid, width=3,
               path=reconstruct_path(came_from, start=start, goal=goal))
 
+    for k, v in came_from.items():
+        print(f"{k}: {v}")
+
 
 if __name__ == '__main__':
     # breadth_first()
