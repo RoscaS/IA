@@ -16,8 +16,4 @@ class City:
         return f"{self.name} ({self.x}; {self.y})"
 
     def distance(self, other: Any) -> float:
-        return math.sqrt((other.x - self.x)**2 + (other.y - self.y)**2)
-
-
-
-
+        return math.sqrt((other.x - self.x) ** 2 + (other.y - self.y) ** 2)

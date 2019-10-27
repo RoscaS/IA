@@ -1,6 +1,8 @@
+import time
+
 from graph import Vertex, SearchableGraph
 from graph.search.SearchStrategy import SearchStrategy
-from helpers.PriorityQueue import PriorityQueue
+from containers.PriorityQueue import PriorityQueue
 
 
 class AStarStrategy(SearchStrategy):

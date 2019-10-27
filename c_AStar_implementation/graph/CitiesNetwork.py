@@ -2,7 +2,7 @@ from typing import List, Any, Dict
 
 from data.exract_data import extract_lines
 from graph.SearchableGraph import SearchableGraph
-from helpers.City import City
+from containers.City import City
 
 POSITIONS = 'data/positions.txt'
 EDGES = 'data/connections.txt'
@@ -29,7 +29,6 @@ class CitiesNetwork(SearchableGraph):
     def _create_cities(self) -> Dict[str, City]:
         cities = [City(*i.split(' ')) for i in raw_data['cities']]
         return {i.name: i for i in cities}
-
 
     def _create_edges(self) -> None:
         for args in [i.split(' ') for i in raw_data['edges']]:

@@ -2,6 +2,7 @@ from typing import Dict, KeysView, Any, List
 
 
 class Vertex:
+
     def __init__(self, node: Any) -> None:
         self.id: Any = node
         self.adjacent: Dict[Vertex, int] = {}
@@ -19,6 +20,9 @@ class Vertex:
         string = '\n\t'.join(format(v, k.id) for k, v in self.adjacent.items())
         return f"\n{self.id}\n\t{string or None}"
 
+    def __lt__(self, other):
+        pass
+
     def add_neighbor(self, neighbor: Any, weight: int = 0) -> None:
         self.adjacent[neighbor] = weight
 
@@ -33,4 +37,3 @@ class Vertex:
             pointer = pointer.parent
         path.append(start)
         return list(reversed(path))
-

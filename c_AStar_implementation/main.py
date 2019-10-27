@@ -9,9 +9,10 @@ def print_path(start, path, iterations):
         print(step.id)
     print('-' * 50)
 
+
 graph = CitiesNetwork()
-start = graph.get_vertex(graph['Paris'])
-goal = graph.get_vertex(graph['Lisbon'])
+start = graph.get_vertex(graph['Brussels'])
+goal = graph.get_vertex(graph['Prague'])
 
 heuristics = [
     graph.set_NullHeuristic,
@@ -21,8 +22,6 @@ heuristics = [
     graph.set_ManhatanHeuristic,
 ]
 
-
-
 if __name__ == '__main__':
 
     # print(graph)
@@ -30,5 +29,3 @@ if __name__ == '__main__':
     for heuristic in heuristics:
         heuristic()
         print_path(start, *graph.search(start, goal))
-
-

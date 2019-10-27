@@ -1,5 +1,5 @@
 import heapq
-from typing import Any, Iterator
+from typing import Any, Iterator, Tuple, List
 
 
 class PriorityQueue:
@@ -8,9 +8,9 @@ class PriorityQueue:
     '''
 
     def __init__(self) -> None:
-        self.elements = []
+        self.elements: List[Tuple[float, Any]] = []
 
-    def __contains__(self, item):
+    def __contains__(self, item) -> bool:
         return item in self.elements
 
     def __iter__(self) -> Iterator:
